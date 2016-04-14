@@ -21,6 +21,7 @@
 		E0ECD9721CBEC770001B9E88 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECD9711CBEC770001B9E88 /* Character.swift */; };
 		E0ECD9741CBEC78A001B9E88 /* Soldier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECD9731CBEC78A001B9E88 /* Soldier.swift */; };
 		E0ECD9761CBEC79D001B9E88 /* Troll.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECD9751CBEC79D001B9E88 /* Troll.swift */; };
+		E0ECD9781CC033A4001B9E88 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECD9771CC033A4001B9E88 /* GameState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E0ECD9711CBEC770001B9E88 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		E0ECD9731CBEC78A001B9E88 /* Soldier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soldier.swift; sourceTree = "<group>"; };
 		E0ECD9751CBEC79D001B9E88 /* Troll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Troll.swift; sourceTree = "<group>"; };
+		E0ECD9771CC033A4001B9E88 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				E0ECD9711CBEC770001B9E88 /* Character.swift */,
 				E0ECD9731CBEC78A001B9E88 /* Soldier.swift */,
 				E0ECD9751CBEC79D001B9E88 /* Troll.swift */,
+				E0ECD9771CC033A4001B9E88 /* GameState.swift */,
 			);
 			path = "combat-oop";
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				E0ECD9721CBEC770001B9E88 /* Character.swift in Sources */,
 				E0ECD9561CBEB7CA001B9E88 /* ViewController.swift in Sources */,
 				E0ECD9741CBEC78A001B9E88 /* Soldier.swift in Sources */,
+				E0ECD9781CC033A4001B9E88 /* GameState.swift in Sources */,
 				E0ECD9761CBEC79D001B9E88 /* Troll.swift in Sources */,
 				E0ECD9541CBEB7CA001B9E88 /* AppDelegate.swift in Sources */,
 			);
