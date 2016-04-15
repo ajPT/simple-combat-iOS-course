@@ -9,5 +9,5 @@
 import Foundation
 
 class GameState {
-    //to update in the future with game state (instead of being in the ViewController)
+    //To update in the future with game state (instead of being in the ViewController)
 }
