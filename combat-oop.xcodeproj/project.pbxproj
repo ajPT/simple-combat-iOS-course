@@ -12,7 +12,6 @@
 		E0ECD9591CBEB7CA001B9E88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD9571CBEB7CA001B9E88 /* Main.storyboard */; };
 		E0ECD95B1CBEB7CA001B9E88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD95A1CBEB7CA001B9E88 /* Assets.xcassets */; };
 		E0ECD95E1CBEB7CA001B9E88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD95C1CBEB7CA001B9E88 /* LaunchScreen.storyboard */; };
-		E0ECD96B1CBEC69C001B9E88 /* Aladin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD9651CBEC69C001B9E88 /* Aladin-Regular.ttf */; };
 		E0ECD96C1CBEC69C001B9E88 /* knight_die.wav in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD9661CBEC69C001B9E88 /* knight_die.wav */; };
 		E0ECD96D1CBEC69C001B9E88 /* knight.scream.wav in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD9671CBEC69C001B9E88 /* knight.scream.wav */; };
 		E0ECD96E1CBEC69C001B9E88 /* orc_die.wav in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD9681CBEC69C001B9E88 /* orc_die.wav */; };
@@ -33,7 +32,6 @@
 		E0ECD95A1CBEB7CA001B9E88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0ECD95D1CBEB7CA001B9E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0ECD95F1CBEB7CA001B9E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E0ECD9651CBEC69C001B9E88 /* Aladin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aladin-Regular.ttf"; sourceTree = "<group>"; };
 		E0ECD9661CBEC69C001B9E88 /* knight_die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = knight_die.wav; sourceTree = "<group>"; };
 		E0ECD9671CBEC69C001B9E88 /* knight.scream.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = knight.scream.wav; sourceTree = "<group>"; };
 		E0ECD9681CBEC69C001B9E88 /* orc_die.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = orc_die.wav; sourceTree = "<group>"; };
@@ -44,6 +42,7 @@
 		E0ECD9751CBEC79D001B9E88 /* Troll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Troll.swift; sourceTree = "<group>"; };
 		E0ECD9771CC033A4001B9E88 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		E0ECD9791CC17C3E001B9E88 /* GameAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameAudio.swift; sourceTree = "<group>"; };
+		E0ECD97B1CC18077001B9E88 /* zephyrea.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = zephyrea.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +75,7 @@
 		E0ECD9521CBEB7CA001B9E88 /* combat-oop */ = {
 			isa = PBXGroup;
 			children = (
-				E0ECD9651CBEC69C001B9E88 /* Aladin-Regular.ttf */,
+				E0ECD97B1CC18077001B9E88 /* zephyrea.ttf */,
 				E0ECD9661CBEC69C001B9E88 /* knight_die.wav */,
 				E0ECD9671CBEC69C001B9E88 /* knight.scream.wav */,
 				E0ECD9681CBEC69C001B9E88 /* orc_die.wav */,
@@ -161,7 +160,6 @@
 				E0ECD95B1CBEB7CA001B9E88 /* Assets.xcassets in Resources */,
 				E0ECD96E1CBEC69C001B9E88 /* orc_die.wav in Resources */,
 				E0ECD96C1CBEC69C001B9E88 /* knight_die.wav in Resources */,
-				E0ECD96B1CBEC69C001B9E88 /* Aladin-Regular.ttf in Resources */,
 				E0ECD9591CBEB7CA001B9E88 /* Main.storyboard in Resources */,
 				E0ECD96F1CBEC69C001B9E88 /* orc.scream.wav in Resources */,
 			);

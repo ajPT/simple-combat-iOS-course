@@ -4,6 +4,15 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="zephyrea.ttf">
+            <string>ZephyreanBRK</string>
+            <string>ZephyreanBRK</string>
+            <string>ZephyreanBRK</string>
+            <string>ZephyreanBRK</string>
+            <string>ZephyreanBRK</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -16,11 +25,155 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-aV-kj8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-fB-TJg">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kz2-35-4te">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="85"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game-logo" translatesAutoresizingMaskIntoConstraints="NO" id="2zc-8b-8uG">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="85"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="85" id="DTF-Tw-E5d"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ksj-Z2-iew">
+                                        <rect key="frame" x="108" y="110" width="345" height="385"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cq3-0n-GiJ">
+                                                <rect key="frame" x="0.0" y="113" width="160" height="160"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m6d-5m-D1b">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="65"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 1 name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wxe-hM-v0R">
+                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
+                                                                <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="20"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your character" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uY2-ns-8DD">
+                                                                <rect key="frame" x="0.0" y="35" width="160" height="30"/>
+                                                                <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="20"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pbd-XG-z1r">
+                                                        <rect key="frame" x="0.0" y="70" width="160" height="90"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBG-5n-PMd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="gxB-vW-Dm1"/>
+                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="wCi-uH-Jzy"/>
+                                                                </constraints>
+                                                                <state key="normal" image="enemy"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHq-Ot-1F4">
+                                                                <rect key="frame" x="80" y="0.0" width="80" height="90"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="luq-e3-1Lr"/>
+                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="rIU-l1-Out"/>
+                                                                </constraints>
+                                                                <state key="normal" image="player"/>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9pX-lD-Kp4">
+                                                <rect key="frame" x="185" y="113" width="160" height="160"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="64r-od-6fk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="65"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 2 name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DMp-va-gNJ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
+                                                                <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="20"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your character" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1qu-9h-04o">
+                                                                <rect key="frame" x="0.0" y="35" width="160" height="30"/>
+                                                                <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="20"/>
+                                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qDQ-cv-QUf">
+                                                        <rect key="frame" x="0.0" y="70" width="160" height="90"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFw-vl-frU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="P6r-fF-t8f"/>
+                                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="Ust-Z9-iDL"/>
+                                                                </constraints>
+                                                                <state key="normal" image="enemy"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOa-F4-bLj">
+                                                                <rect key="frame" x="80" y="0.0" width="80" height="90"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="Z0q-fa-GQh"/>
+                                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="pHg-9Z-YLZ"/>
+                                                                </constraints>
+                                                                <state key="normal" image="player"/>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hJL-IC-4Xb">
+                                        <rect key="frame" x="220" y="520" width="120" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nob-HT-hmj">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                                <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="20"/>
+                                                <state key="normal" title="BEGIN" backgroundImage="player2attackbtn">
+                                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="ETA-42-8fQ"/>
+                                            <constraint firstAttribute="height" constant="40" id="FYO-nk-t4v"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hmR-aV-kj8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3dX-Cm-NAc"/>
+                            <constraint firstAttribute="trailing" secondItem="hmR-aV-kj8" secondAttribute="trailing" id="7zm-4b-yQM"/>
+                            <constraint firstAttribute="bottom" secondItem="L9T-fB-TJg" secondAttribute="bottom" constant="20" id="Sj5-aV-ccE"/>
+                            <constraint firstItem="L9T-fB-TJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bQ0-Gg-MOK"/>
+                            <constraint firstItem="L9T-fB-TJg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pv4-GE-Mbq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hmR-aV-kj8" secondAttribute="bottom" id="rIJ-m7-93t"/>
+                            <constraint firstAttribute="trailing" secondItem="L9T-fB-TJg" secondAttribute="trailing" constant="20" id="v3t-q3-5cW"/>
+                            <constraint firstItem="hmR-aV-kj8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xPd-wg-pmm"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="305"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="1024" height="677"/>
+        <image name="enemy" width="241" height="348"/>
+        <image name="game-logo" width="603" height="99"/>
+        <image name="player" width="406" height="441"/>
+        <image name="player2attackbtn" width="212" height="78"/>
+    </resources>
 </document>
