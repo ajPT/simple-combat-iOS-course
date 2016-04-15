@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var trool: Troll!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        trool = Troll(name: "TR00L")
+        print("Troll attack is \(trool.attackPwr) and HP is \(trool.hp)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +24,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+
+    
 
 }
 

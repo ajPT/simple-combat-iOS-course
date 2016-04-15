@@ -14,18 +14,6 @@ class Troll: Character {
     override var attackDiff: Int {
         return 30
     }
-    
-    override var attackPwr: Int {
-        return getRandomAttackPwr()
-    }
-
-    override var hp: Int {
-        get {
-           return getRandomHp()
-        }
-        set {
-            self.hp = newValue
-        }
-    }
 
 }
+

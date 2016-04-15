@@ -10,11 +10,11 @@ import Foundation
 
 class Character {
     //PRIVATE PROPERTIES
-    private var _hp: Int = 100
-    private var _attackPwr: Int = 20
-    private var _name: String = "No_Name"
-    private var _hpDiff: Int = 20
-    private var _attackDiff: Int = 25
+    private var _hp = 100
+    private var _attackPwr = 20
+    private var _name = "No_Name"
+    private var _hpDiff = 20
+    private var _attackDiff = 25
     
     //COMPUTED PROPERTIES
     var hp: Int {
@@ -27,31 +27,25 @@ class Character {
     }
     
     var attackPwr: Int {
-        get {
-            return _attackPwr
-        }
+        return _attackPwr
     }
     
     var hpDiff: Int {
-        get {
-            return _hpDiff
-        }
+        return _hpDiff
     }
     
     var attackDiff: Int {
-        get {
-            return _attackDiff
-        }
+        return _attackDiff
     }
     
     var name: String {
-        get {
-            return _name
-        }
+        return _name
     }
     
     //INITIALIZERS
     init(name: String) {
+        self._hp = getRandomHp()
+        self._attackPwr = getRandomAttackPwr()
         self._name = name
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 class Soldier: Character {
     //PROPERTIES
-    private var _immunity: Int = 5
+    private var _immunity = 5
     
     //COMPUTED PROPERTIES
     override var hpDiff: Int {
@@ -18,22 +18,22 @@ class Soldier: Character {
     }
     
     var immunity: Int {
-        get {
-            return _immunity
-        }
+        return _immunity
     }
     
     override var hp: Int {
         get {
-            return getRandomHp()
+            return super.hp
         }
         set {
             self.hp = newValue
         }
     }
     
-    override var attackPwr: Int {
-        return getRandomAttackPwr()
+    //INITIALIZERS
+    convenience init(name: String, immunity: Int) {
+        self.init(name: name)
+        _immunity = immunity
     }
     
     //METHODS
