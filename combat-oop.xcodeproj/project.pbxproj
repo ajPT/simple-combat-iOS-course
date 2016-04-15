@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00722F11CC1B30700EB0F3F /* zephyrea.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD97B1CC18077001B9E88 /* zephyrea.ttf */; };
 		E0ECD9541CBEB7CA001B9E88 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECD9531CBEB7CA001B9E88 /* AppDelegate.swift */; };
 		E0ECD9561CBEB7CA001B9E88 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECD9551CBEB7CA001B9E88 /* ViewController.swift */; };
 		E0ECD9591CBEB7CA001B9E88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0ECD9571CBEB7CA001B9E88 /* Main.storyboard */; };
@@ -161,6 +162,7 @@
 				E0ECD96E1CBEC69C001B9E88 /* orc_die.wav in Resources */,
 				E0ECD96C1CBEC69C001B9E88 /* knight_die.wav in Resources */,
 				E0ECD9591CBEB7CA001B9E88 /* Main.storyboard in Resources */,
+				E00722F11CC1B30700EB0F3F /* zephyrea.ttf in Resources */,
 				E0ECD96F1CBEC69C001B9E88 /* orc.scream.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

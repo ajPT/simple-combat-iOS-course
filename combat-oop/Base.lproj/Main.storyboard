@@ -74,7 +74,7 @@
                                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="gxB-vW-Dm1"/>
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="wCi-uH-Jzy"/>
                                                                 </constraints>
-                                                                <state key="normal" image="enemy"/>
+                                                                <state key="normal" image="enemy-left"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHq-Ot-1F4">
                                                                 <rect key="frame" x="80" y="0.0" width="80" height="90"/>
@@ -82,7 +82,7 @@
                                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="luq-e3-1Lr"/>
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="rIU-l1-Out"/>
                                                                 </constraints>
-                                                                <state key="normal" image="player"/>
+                                                                <state key="normal" image="player-right"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -116,7 +116,7 @@
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="P6r-fF-t8f"/>
                                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="Ust-Z9-iDL"/>
                                                                 </constraints>
-                                                                <state key="normal" image="enemy"/>
+                                                                <state key="normal" image="enemy-left"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOa-F4-bLj">
                                                                 <rect key="frame" x="80" y="0.0" width="80" height="90"/>
@@ -124,7 +124,7 @@
                                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="Z0q-fa-GQh"/>
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="pHg-9Z-YLZ"/>
                                                                 </constraints>
-                                                                <state key="normal" image="player"/>
+                                                                <state key="normal" image="player-right"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -171,9 +171,9 @@
     </scenes>
     <resources>
         <image name="bg" width="1024" height="677"/>
-        <image name="enemy" width="241" height="348"/>
+        <image name="enemy-left" width="241" height="348"/>
         <image name="game-logo" width="603" height="99"/>
-        <image name="player" width="406" height="441"/>
+        <image name="player-right" width="406" height="441"/>
         <image name="player2attackbtn" width="212" height="78"/>
     </resources>
 </document>
