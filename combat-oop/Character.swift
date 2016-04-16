@@ -15,6 +15,7 @@ class Character {
     private var _name = "No_Name"
     private var _hpDiff = 20
     private var _attackDiff = 25
+    private var _type = "No_Type"
     
     //COMPUTED PROPERTIES
     var hp: Int {
@@ -39,7 +40,16 @@ class Character {
     }
     
     var name: String {
-        return _name
+        get {
+            return _name
+        }
+        set {
+            _name = newValue
+        }
+    }
+    
+    var type: String {
+        return _type
     }
     
     //INITIALIZERS

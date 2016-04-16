@@ -14,6 +14,8 @@
             <string>ZephyreanBRK</string>
             <string>ZephyreanBRK</string>
             <string>ZephyreanBRK</string>
+            <string>ZephyreanBRK</string>
+            <string>ZephyreanBRK</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -32,7 +34,70 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-aV-kj8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-fB-TJg">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-4B-IjG">
+                                <rect key="frame" x="20" y="40" width="560" height="490"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="2Jt-5c-Q50">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="96"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="leb-V7-e6R">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="96"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUi-qE-VTp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="9HN-51-uFY"/>
+                                                        </constraints>
+                                                        <state key="normal" image="player2attackbtn"/>
+                                                        <connections>
+                                                            <action selector="onP1attackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rM3-j5-nHP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNd-hC-W7d">
+                                                        <rect key="frame" x="0.0" y="70" width="180" height="26"/>
+                                                        <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="25"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="DtT-of-g3q">
+                                                <rect key="frame" x="380" y="0.0" width="180" height="96"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5F-1b-2GU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="H4V-4o-VK5"/>
+                                                        </constraints>
+                                                        <state key="normal" image="player1attackbtn"/>
+                                                        <connections>
+                                                            <action selector="onP2attackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RTV-ve-HRh"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ7-Uf-Dhm">
+                                                        <rect key="frame" x="0.0" y="70" width="180" height="26"/>
+                                                        <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="25"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="10M-cs-uQT">
+                                        <rect key="frame" x="0.0" y="101" width="560" height="389"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy-left" translatesAutoresizingMaskIntoConstraints="NO" id="pf5-qR-WDo">
+                                                <rect key="frame" x="0.0" y="21" width="205" height="348"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player-right" translatesAutoresizingMaskIntoConstraints="NO" id="WjJ-eG-gUd">
+                                                <rect key="frame" x="355" y="0.0" width="205" height="389"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-fB-TJg">
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kz2-35-4te">
@@ -47,10 +112,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ksj-Z2-iew">
-                                        <rect key="frame" x="108" y="110" width="345" height="385"/>
+                                        <rect key="frame" x="108" y="110" width="345" height="425"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cq3-0n-GiJ">
-                                                <rect key="frame" x="0.0" y="113" width="160" height="160"/>
+                                                <rect key="frame" x="0.0" y="133" width="160" height="160"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m6d-5m-D1b">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="65"/>
@@ -98,7 +163,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9pX-lD-Kp4">
-                                                <rect key="frame" x="185" y="113" width="160" height="160"/>
+                                                <rect key="frame" x="185" y="133" width="160" height="160"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="64r-od-6fk">
                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="65"/>
@@ -148,10 +213,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hJL-IC-4Xb">
-                                        <rect key="frame" x="220" y="520" width="120" height="40"/>
+                                        <rect key="frame" x="280" y="560" width="0.0" height="0.0"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nob-HT-hmj">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nob-HT-hmj">
+                                                <rect key="frame" x="-300" y="-580" width="212" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="20"/>
                                                 <state key="normal" title="BEGIN" backgroundImage="player2attackbtn">
                                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -168,7 +233,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="W53-Pk-Lm2">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="W53-Pk-Lm2">
                                 <rect key="frame" x="0.0" y="530" width="600" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Uss-T9-KgN"/>
@@ -180,61 +245,18 @@
                                     <constraint firstAttribute="height" constant="46" id="MBf-HQ-Pkg"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-4B-IjG">
-                                <rect key="frame" x="20" y="40" width="560" height="490"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Jt-5c-Q50">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="80"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="leb-V7-e6R">
-                                                <rect key="frame" x="0.0" y="0.0" width="560" height="35"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player1attackbtn" translatesAutoresizingMaskIntoConstraints="NO" id="0Lx-ca-TGd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="245" height="35"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player2attackbtn" translatesAutoresizingMaskIntoConstraints="NO" id="gW9-Nd-szc">
-                                                        <rect key="frame" x="315" y="0.0" width="245" height="35"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="yOa-aQ-dKy"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lhs-8D-NT2">
-                                                <rect key="frame" x="0.0" y="45" width="560" height="35"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ7-Uf-Dhm">
-                                                        <rect key="frame" x="0.0" y="5" width="255" height="26"/>
-                                                        <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="25"/>
-                                                        <color key="textColor" red="0.88686816287364012" green="1" blue="0.98125511600429827" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNd-hC-W7d">
-                                                        <rect key="frame" x="305" y="5" width="255" height="26"/>
-                                                        <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="25"/>
-                                                        <color key="textColor" red="0.88686816290000003" green="1" blue="0.98125511600000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="QBx-He-aWe"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="10M-cs-uQT">
-                                        <rect key="frame" x="0.0" y="80" width="560" height="410"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy-left" translatesAutoresizingMaskIntoConstraints="NO" id="pf5-qR-WDo">
-                                                <rect key="frame" x="0.0" y="31" width="255" height="348"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player-right" translatesAutoresizingMaskIntoConstraints="NO" id="WjJ-eG-gUd">
-                                                <rect key="frame" x="305" y="0.0" width="255" height="410"/>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Attack!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5I-o0-NQK">
+                                <rect key="frame" x="80" y="48" width="90" height="30"/>
+                                <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Attack!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXv-qF-yUM">
+                                <rect key="frame" x="453" y="46" width="73" height="30"/>
+                                <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -242,10 +264,14 @@
                             <constraint firstItem="hmR-aV-kj8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3dX-Cm-NAc"/>
                             <constraint firstItem="lDe-V0-0uV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="79" id="69D-xg-ECH"/>
                             <constraint firstAttribute="trailing" secondItem="hmR-aV-kj8" secondAttribute="trailing" id="7zm-4b-yQM"/>
+                            <constraint firstItem="j5F-1b-2GU" firstAttribute="centerY" secondItem="xXv-qF-yUM" secondAttribute="centerY" id="8Ri-vH-4BV"/>
+                            <constraint firstItem="j5F-1b-2GU" firstAttribute="centerX" secondItem="xXv-qF-yUM" secondAttribute="centerX" id="Lrx-nP-wI0"/>
                             <constraint firstAttribute="bottom" secondItem="L9T-fB-TJg" secondAttribute="bottom" constant="20" id="Sj5-aV-ccE"/>
                             <constraint firstItem="L9T-fB-TJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bQ0-Gg-MOK"/>
+                            <constraint firstItem="jUi-qE-VTp" firstAttribute="centerX" secondItem="b5I-o0-NQK" secondAttribute="centerX" id="ejE-vB-ScP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="W53-Pk-Lm2" secondAttribute="bottom" id="g6l-Dr-8A6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lDe-V0-0uV" secondAttribute="trailing" constant="79" id="hYQ-nf-EPX"/>
+                            <constraint firstItem="jUi-qE-VTp" firstAttribute="centerY" secondItem="b5I-o0-NQK" secondAttribute="centerY" id="iLB-4F-gIF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lDe-V0-0uV" secondAttribute="bottom" constant="12" id="mIc-My-6QX"/>
                             <constraint firstAttribute="trailing" secondItem="W53-Pk-Lm2" secondAttribute="trailing" id="oFp-zL-4k8"/>
                             <constraint firstItem="lDe-V0-0uV" firstAttribute="centerY" secondItem="W53-Pk-Lm2" secondAttribute="centerY" id="pFp-qK-sZK"/>
@@ -264,13 +290,15 @@
                         <outlet property="beginBtn" destination="Nob-HT-hmj" id="6Hp-v5-ZXu"/>
                         <outlet property="groundImg" destination="W53-Pk-Lm2" id="P0o-ej-d28"/>
                         <outlet property="logoImg" destination="2zc-8b-8uG" id="XlW-6c-h6h"/>
-                        <outlet property="player1AttackBtn" destination="0Lx-ca-TGd" id="YC8-hi-LBj"/>
+                        <outlet property="player1AttBtn" destination="jUi-qE-VTp" id="DCA-y0-Llw"/>
+                        <outlet property="player1AttLbl" destination="b5I-o0-NQK" id="ovg-6H-VMV"/>
                         <outlet property="player1HpLbl" destination="TZ7-Uf-Dhm" id="0cP-MW-2P4"/>
                         <outlet property="player1Img" destination="pf5-qR-WDo" id="csQ-8c-40B"/>
                         <outlet property="player1SelectSoldierImg" destination="EHq-Ot-1F4" id="i56-ie-tjj"/>
                         <outlet property="player1SelectTrollImg" destination="zBG-5n-PMd" id="6EB-Xe-ty7"/>
                         <outlet property="player1nameLbl" destination="wxe-hM-v0R" id="aQ5-Uf-4uE"/>
-                        <outlet property="player2AttackBtn" destination="gW9-Nd-szc" id="juf-UT-1ea"/>
+                        <outlet property="player2AttBtn" destination="j5F-1b-2GU" id="4KC-Hf-rxi"/>
+                        <outlet property="player2AttLbl" destination="xXv-qF-yUM" id="Qdf-Wu-2Iz"/>
                         <outlet property="player2HpLbl" destination="ZNd-hC-W7d" id="0rn-zj-CNK"/>
                         <outlet property="player2Img" destination="WjJ-eG-gUd" id="Pwd-0U-efx"/>
                         <outlet property="player2SelectSoldierImg" destination="IOa-F4-bLj" id="zvt-Wi-0cm"/>

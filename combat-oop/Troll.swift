@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 class Troll: Character {
 
     //COMPUTED PROPERTIES
     override var attackDiff: Int {
         return 30
+    }
+    
+    override var type: String {
+        return "Troll"
     }
 
 }

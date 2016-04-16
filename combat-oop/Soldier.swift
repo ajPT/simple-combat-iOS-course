@@ -7,16 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class Soldier: Character {
+
     //PROPERTIES
     private var _immunity = 5
     
     //COMPUTED PROPERTIES
-    override var hpDiff: Int {
-        return 10
-    }
-    
     var immunity: Int {
         return _immunity
     }
@@ -28,6 +26,14 @@ class Soldier: Character {
         set {
             self.hp = newValue
         }
+    }
+    
+    override var hpDiff: Int {
+        return 10
+    }
+    
+    override var type: String {
+        return "Soldier"
     }
     
     //INITIALIZERS
