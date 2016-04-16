@@ -119,6 +119,8 @@ class ViewController: UIViewController {
         
         hideInitialScreen(true)
         hideCombatScreen(false)
+        player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
+        player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
     }
     
     

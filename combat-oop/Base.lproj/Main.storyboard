@@ -292,14 +292,14 @@
                         <outlet property="logoImg" destination="2zc-8b-8uG" id="XlW-6c-h6h"/>
                         <outlet property="player1AttBtn" destination="jUi-qE-VTp" id="DCA-y0-Llw"/>
                         <outlet property="player1AttLbl" destination="b5I-o0-NQK" id="ovg-6H-VMV"/>
-                        <outlet property="player1HpLbl" destination="TZ7-Uf-Dhm" id="0cP-MW-2P4"/>
+                        <outlet property="player1HpLbl" destination="ZNd-hC-W7d" id="ghl-tg-BcV"/>
                         <outlet property="player1Img" destination="pf5-qR-WDo" id="csQ-8c-40B"/>
                         <outlet property="player1SelectSoldierImg" destination="EHq-Ot-1F4" id="i56-ie-tjj"/>
                         <outlet property="player1SelectTrollImg" destination="zBG-5n-PMd" id="6EB-Xe-ty7"/>
                         <outlet property="player1nameLbl" destination="wxe-hM-v0R" id="aQ5-Uf-4uE"/>
                         <outlet property="player2AttBtn" destination="j5F-1b-2GU" id="4KC-Hf-rxi"/>
                         <outlet property="player2AttLbl" destination="xXv-qF-yUM" id="Qdf-Wu-2Iz"/>
-                        <outlet property="player2HpLbl" destination="ZNd-hC-W7d" id="0rn-zj-CNK"/>
+                        <outlet property="player2HpLbl" destination="TZ7-Uf-Dhm" id="JEq-lk-HMb"/>
                         <outlet property="player2Img" destination="WjJ-eG-gUd" id="Pwd-0U-efx"/>
                         <outlet property="player2SelectSoldierImg" destination="IOa-F4-bLj" id="zvt-Wi-0cm"/>
                         <outlet property="player2SelectTrollImg" destination="mFw-vl-frU" id="FET-eb-JgZ"/>
