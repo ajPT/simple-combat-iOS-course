@@ -16,6 +16,7 @@
             <string>ZephyreanBRK</string>
             <string>ZephyreanBRK</string>
             <string>ZephyreanBRK</string>
+            <string>ZephyreanBRK</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -257,6 +258,15 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Huf-Mu-oe2">
+                                <rect key="frame" x="128" y="551" width="344" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="pKd-AK-c7N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -265,8 +275,10 @@
                             <constraint firstItem="lDe-V0-0uV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="79" id="69D-xg-ECH"/>
                             <constraint firstAttribute="trailing" secondItem="hmR-aV-kj8" secondAttribute="trailing" id="7zm-4b-yQM"/>
                             <constraint firstItem="j5F-1b-2GU" firstAttribute="centerY" secondItem="xXv-qF-yUM" secondAttribute="centerY" id="8Ri-vH-4BV"/>
+                            <constraint firstItem="lDe-V0-0uV" firstAttribute="centerY" secondItem="Huf-Mu-oe2" secondAttribute="centerY" id="H2E-pX-vOS"/>
                             <constraint firstItem="j5F-1b-2GU" firstAttribute="centerX" secondItem="xXv-qF-yUM" secondAttribute="centerX" id="Lrx-nP-wI0"/>
                             <constraint firstAttribute="bottom" secondItem="L9T-fB-TJg" secondAttribute="bottom" constant="20" id="Sj5-aV-ccE"/>
+                            <constraint firstItem="lDe-V0-0uV" firstAttribute="centerX" secondItem="Huf-Mu-oe2" secondAttribute="centerX" id="T7n-oI-rqq"/>
                             <constraint firstItem="L9T-fB-TJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bQ0-Gg-MOK"/>
                             <constraint firstItem="jUi-qE-VTp" firstAttribute="centerX" secondItem="b5I-o0-NQK" secondAttribute="centerX" id="ejE-vB-ScP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="W53-Pk-Lm2" secondAttribute="bottom" id="g6l-Dr-8A6"/>
@@ -288,7 +300,9 @@
                     </view>
                     <connections>
                         <outlet property="beginBtn" destination="Nob-HT-hmj" id="6Hp-v5-ZXu"/>
+                        <outlet property="combatStackView" destination="kV2-4B-IjG" id="g6Q-mm-Teu"/>
                         <outlet property="groundImg" destination="W53-Pk-Lm2" id="P0o-ej-d28"/>
+                        <outlet property="initialStackView" destination="L9T-fB-TJg" id="tnu-Du-pCi"/>
                         <outlet property="logoImg" destination="2zc-8b-8uG" id="XlW-6c-h6h"/>
                         <outlet property="player1AttBtn" destination="jUi-qE-VTp" id="DCA-y0-Llw"/>
                         <outlet property="player1AttLbl" destination="b5I-o0-NQK" id="ovg-6H-VMV"/>
@@ -306,7 +320,8 @@
                         <outlet property="player2nameLbl" destination="DMp-va-gNJ" id="frA-0B-Q5l"/>
                         <outlet property="selectChar2Lbl" destination="1qu-9h-04o" id="Kr7-Ow-9LE"/>
                         <outlet property="selectCharLbl" destination="uY2-ns-8DD" id="MYh-Nh-c3d"/>
-                        <outlet property="textHolderLbl" destination="lDe-V0-0uV" id="LVP-V3-lM2"/>
+                        <outlet property="textHolderImg" destination="lDe-V0-0uV" id="AG0-b4-HcC"/>
+                        <outlet property="textHolderLbl" destination="Huf-Mu-oe2" id="JeE-Lg-LZY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

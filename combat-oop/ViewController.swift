@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     var soldierRightImg: UIImage = UIImage(named: "player-right")!
     var soldierLeftImg: UIImage = UIImage(named: "player-left")!
     
+    @IBOutlet weak var initialStackView: UIStackView!
+    @IBOutlet weak var combatStackView: UIStackView!
+    
     @IBOutlet weak var logoImg: UIImageView! //begin screen
     @IBOutlet weak var player1nameLbl: UITextField! //begin screen
     @IBOutlet weak var selectCharLbl: UILabel! //begin screen
@@ -30,7 +33,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var player2SelectTrollImg: UIButton! //begin screen
     @IBOutlet weak var player2SelectSoldierImg: UIButton! //begin screen
     @IBOutlet weak var groundImg: UIImageView!
-    @IBOutlet weak var textHolderLbl: UIImageView!
     @IBOutlet weak var beginBtn: UIButton! //begin screen
     @IBOutlet weak var player1AttLbl: UILabel!
     @IBOutlet weak var player2AttLbl: UILabel!
@@ -40,12 +42,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var player2HpLbl: UILabel!
     @IBOutlet weak var player1Img: UIImageView!
     @IBOutlet weak var player2Img: UIImageView!
+    @IBOutlet weak var textHolderLbl: UILabel!
+    @IBOutlet weak var textHolderImg: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideInitialScreen(false)
-        beginBtn.hidden = true
-        hideCombatScreen(true)
+        initialStackView.hidden = false
+        combatStackView.hidden = true
+        hideStuffOutsideStackViews(true)
+        //hideInitialScreen(false)
+        //beginBtn.hidden = true
+        //hideCombatScreen(true)
     }
     
     @IBAction func onPlayer1SelectSoldier(sender: AnyObject) {
@@ -109,6 +117,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onBeginPressed(sender: AnyObject) {
+        
+        initialStackView.hidden = true
+        combatStackView.hidden = false
+        hideStuffOutsideStackViews(false)
+        
         if player1nameLbl.text != "" {
             player1.name = player1nameLbl.text!
         }
@@ -117,17 +130,32 @@ class ViewController: UIViewController {
             player2.name = player2nameLbl.text!
         }
         
-        hideInitialScreen(true)
-        hideCombatScreen(false)
+        //hideInitialScreen(true)
+        //hideCombatScreen(false)
         player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
         player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
     }
     
     
     @IBAction func onP1attackPressed(sender: AnyObject) {
+        player2.isAttacked(player1.attackPwr)
+        player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
+        textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!"
     }
     
     @IBAction func onP2attackPressed(sender: AnyObject) {
+        player1.isAttacked(player2.attackPwr)
+        player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
+        textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!"
+    }
+    
+    func hideStuffOutsideStackViews(myBoolean: Bool) {
+        player1AttLbl.hidden = myBoolean
+        player2AttLbl.hidden = myBoolean
+        groundImg.hidden = myBoolean
+        textHolderImg.hidden = myBoolean
+        textHolderLbl.hidden = myBoolean
+        
     }
     
     func hideInitialScreen(myBoolean: Bool) {
@@ -145,6 +173,7 @@ class ViewController: UIViewController {
     
     func hideCombatScreen(myBoolean: Bool) {
         groundImg.hidden = myBoolean
+        textHolderImg.hidden = myBoolean
         textHolderLbl.hidden = myBoolean
         player1Img.hidden = myBoolean
         player2Img.hidden = myBoolean
