@@ -8,8 +8,12 @@
 
 import UIKit
 
+//TODO
+//Add validation to onP1attackPressed and onP2attackPressed -> immunity for soldier
+//Add sounds
+
 class ViewController: UIViewController {
-    
+    //PROPERTIES
     var player1: Character!
     var player2: Character!
     var player1Ready = false
@@ -22,20 +26,20 @@ class ViewController: UIViewController {
     var soldierRightImg: UIImage = UIImage(named: "player-right")!
     var soldierLeftImg: UIImage = UIImage(named: "player-left")!
     
+    //OUTLETS
     @IBOutlet weak var initialStackView: UIStackView!
     @IBOutlet weak var combatStackView: UIStackView!
-    
-    @IBOutlet weak var logoImg: UIImageView! //begin screen
-    @IBOutlet weak var player1nameLbl: UITextField! //begin screen
-    @IBOutlet weak var selectCharLbl: UILabel! //begin screen
-    @IBOutlet weak var player1SelectTrollImg: UIButton! //begin screen
-    @IBOutlet weak var player1SelectSoldierImg: UIButton! //begin screen
-    @IBOutlet weak var player2nameLbl: UITextField! //begin screen
-    @IBOutlet weak var selectChar2Lbl: UILabel! //begin screen
-    @IBOutlet weak var player2SelectTrollImg: UIButton! //begin screen
-    @IBOutlet weak var player2SelectSoldierImg: UIButton! //begin screen
+    @IBOutlet weak var logoImg: UIImageView!
+    @IBOutlet weak var player1nameLbl: UITextField!
+    @IBOutlet weak var selectCharLbl: UILabel!
+    @IBOutlet weak var player1SelectTrollImg: UIButton!
+    @IBOutlet weak var player1SelectSoldierImg: UIButton!
+    @IBOutlet weak var player2nameLbl: UITextField!
+    @IBOutlet weak var selectChar2Lbl: UILabel!
+    @IBOutlet weak var player2SelectTrollImg: UIButton!
+    @IBOutlet weak var player2SelectSoldierImg: UIButton!
     @IBOutlet weak var groundImg: UIImageView!
-    @IBOutlet weak var beginBtn: UIButton! //begin screen
+    @IBOutlet weak var beginBtn: UIButton!
     @IBOutlet weak var player1AttLbl: UILabel!
     @IBOutlet weak var player2AttLbl: UILabel!
     @IBOutlet weak var player1AttBtn: UIButton!
@@ -55,14 +59,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         initialStackView.hidden = false
         combatStackView.hidden = true
-        //hideInitialScreen(false)
         beginBtn.hidden = true
-        //hideCombatScreen(true)
         hideCombatStuffOutsideStackView(true)
         hideScreenStuffOutsideStackView(true)
         hideFinalSceneStuff(true)
     }
     
+    //ACTIONS
     @IBAction func onPlayer1SelectSoldier(sender: AnyObject) {
         if !player1Ready {
             player1SelectTrollImg.hidden = true
@@ -143,19 +146,16 @@ class ViewController: UIViewController {
             player2.name = player2nameLbl.text!
         }
         
-        //hideInitialScreen(true)
-        //hideCombatScreen(false)
         player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
         player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
     }
-    
     
     @IBAction func onP1attackPressed(sender: AnyObject) {
         player1.attackPwr = player1.getRandomAttackPwr()
         player2.isAttacked(player1.attackPwr)
         if player2.isAlive() {
             player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
-            textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!" //FALTA VERIF DA IMUNIDADE
+            textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!"
         } else {
             textHolderLbl.text = "\(player1.name) killed \(player2.name). Victoryyyy!!!"
             combatStackView.hidden = true
@@ -170,7 +170,7 @@ class ViewController: UIViewController {
         player1.isAttacked(player2.attackPwr)
         if player1.isAlive() {
             player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
-            textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!" //FALTA VERIF DA IMUNIDADE
+            textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!"
         } else {
             textHolderLbl.text = "\(player2.name) killed \(player1.name). Victoryyyy!!!"
             combatStackView.hidden = true
@@ -200,7 +200,6 @@ class ViewController: UIViewController {
         player2nameLbl.text = ""
     }
     
-    
     @IBAction func onRematchBtnPressed(sender: AnyObject) {
         hideFinalSceneStuff(true)
         player1.hp = player1InitHp
@@ -212,7 +211,7 @@ class ViewController: UIViewController {
         hideCombatStuffOutsideStackView(false)
     }
     
-    
+    //METHODS
     func hideFinalSceneStuff(myBoolean: Bool) {
         restartLbl.hidden = myBoolean
         restartBtn.hidden = myBoolean
@@ -230,38 +229,6 @@ class ViewController: UIViewController {
         textHolderImg.hidden = myBoolean
         textHolderLbl.hidden = myBoolean
     }
-    
-    
-//    func hideInitialScreen(myBoolean: Bool) {
-//        beginBtn.hidden = myBoolean
-//        logoImg.hidden = myBoolean
-//        player1nameLbl!.hidden = myBoolean
-//        selectCharLbl.hidden = myBoolean
-//        player1SelectTrollImg.hidden = myBoolean
-//        player1SelectSoldierImg.hidden = myBoolean
-//        player2nameLbl!.hidden = myBoolean
-//        selectChar2Lbl.hidden = myBoolean
-//        player2SelectTrollImg.hidden = myBoolean
-//        player2SelectSoldierImg.hidden = myBoolean
-//    }
-//    
-//    func hideCombatScreen(myBoolean: Bool) {
-//        groundImg.hidden = myBoolean
-//        textHolderImg.hidden = myBoolean
-//        textHolderLbl.hidden = myBoolean
-//        player1Img.hidden = myBoolean
-//        player2Img.hidden = myBoolean
-//        player1HpLbl.hidden = myBoolean
-//        player2HpLbl.hidden = myBoolean
-//        player1AttBtn.hidden = myBoolean
-//        player2AttBtn.hidden = myBoolean
-//        player1AttLbl.hidden = myBoolean
-//        player2AttLbl.hidden = myBoolean
-//        player1AttBtn.hidden = myBoolean
-//        player2AttBtn.hidden = myBoolean
-//        player1Img.hidden = myBoolean
-//        player2Img.hidden = myBoolean
-//    }
     
     func createPlayerImg() {
         if player1Ready && player1.type == "Soldier" {
@@ -284,7 +251,6 @@ class ViewController: UIViewController {
             return false
         }
     }
-    
 
 }
 
