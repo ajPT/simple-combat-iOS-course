@@ -3,9 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="zephyrea.ttf">
+            <string>ZephyreanBRK</string>
+            <string>ZephyreanBRK</string>
             <string>ZephyreanBRK</string>
             <string>ZephyreanBRK</string>
             <string>ZephyreanBRK</string>
@@ -29,7 +32,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="hmR-aV-kj8">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-fB-TJg">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-fB-TJg">
                                 <rect key="frame" x="20" y="20" width="560" height="560"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kz2-35-4te">
@@ -75,6 +78,9 @@
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="wCi-uH-Jzy"/>
                                                                 </constraints>
                                                                 <state key="normal" image="enemy-left"/>
+                                                                <connections>
+                                                                    <action selector="onPlayer1SelectTroll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eSo-ME-COs"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHq-Ot-1F4">
                                                                 <rect key="frame" x="80" y="0.0" width="80" height="90"/>
@@ -83,6 +89,9 @@
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="rIU-l1-Out"/>
                                                                 </constraints>
                                                                 <state key="normal" image="player-right"/>
+                                                                <connections>
+                                                                    <action selector="onPlayer1SelectSoldier:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qUM-eI-DSx"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -117,6 +126,9 @@
                                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="Ust-Z9-iDL"/>
                                                                 </constraints>
                                                                 <state key="normal" image="enemy-left"/>
+                                                                <connections>
+                                                                    <action selector="onPlayer2SelectTroll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NTW-BD-g9y"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOa-F4-bLj">
                                                                 <rect key="frame" x="80" y="0.0" width="80" height="90"/>
@@ -125,6 +137,9 @@
                                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="pHg-9Z-YLZ"/>
                                                                 </constraints>
                                                                 <state key="normal" image="player-right"/>
+                                                                <connections>
+                                                                    <action selector="onPlayer2SelectSoldier:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K4p-0h-xby"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -141,6 +156,9 @@
                                                 <state key="normal" title="BEGIN" backgroundImage="player2attackbtn">
                                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onBeginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gIo-f1-JZq"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -150,19 +168,118 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="W53-Pk-Lm2">
+                                <rect key="frame" x="0.0" y="530" width="600" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="Uss-T9-KgN"/>
+                                </constraints>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text-holder" translatesAutoresizingMaskIntoConstraints="NO" id="lDe-V0-0uV">
+                                <rect key="frame" x="99" y="542" width="402" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="MBf-HQ-Pkg"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kV2-4B-IjG">
+                                <rect key="frame" x="20" y="40" width="560" height="490"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Jt-5c-Q50">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="80"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="leb-V7-e6R">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="35"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player1attackbtn" translatesAutoresizingMaskIntoConstraints="NO" id="0Lx-ca-TGd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="245" height="35"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player2attackbtn" translatesAutoresizingMaskIntoConstraints="NO" id="gW9-Nd-szc">
+                                                        <rect key="frame" x="315" y="0.0" width="245" height="35"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="yOa-aQ-dKy"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Lhs-8D-NT2">
+                                                <rect key="frame" x="0.0" y="45" width="560" height="35"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZ7-Uf-Dhm">
+                                                        <rect key="frame" x="0.0" y="5" width="255" height="26"/>
+                                                        <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="25"/>
+                                                        <color key="textColor" red="0.88686816287364012" green="1" blue="0.98125511600429827" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxx HP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNd-hC-W7d">
+                                                        <rect key="frame" x="305" y="5" width="255" height="26"/>
+                                                        <fontDescription key="fontDescription" name="ZephyreanBRK" family="Zephyrean BRK" pointSize="25"/>
+                                                        <color key="textColor" red="0.88686816290000003" green="1" blue="0.98125511600000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="QBx-He-aWe"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="10M-cs-uQT">
+                                        <rect key="frame" x="0.0" y="80" width="560" height="410"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enemy-left" translatesAutoresizingMaskIntoConstraints="NO" id="pf5-qR-WDo">
+                                                <rect key="frame" x="0.0" y="31" width="255" height="348"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="player-right" translatesAutoresizingMaskIntoConstraints="NO" id="WjJ-eG-gUd">
+                                                <rect key="frame" x="305" y="0.0" width="255" height="410"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="kV2-4B-IjG" secondAttribute="trailing" id="339-c4-HU8"/>
                             <constraint firstItem="hmR-aV-kj8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="3dX-Cm-NAc"/>
+                            <constraint firstItem="lDe-V0-0uV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="79" id="69D-xg-ECH"/>
                             <constraint firstAttribute="trailing" secondItem="hmR-aV-kj8" secondAttribute="trailing" id="7zm-4b-yQM"/>
                             <constraint firstAttribute="bottom" secondItem="L9T-fB-TJg" secondAttribute="bottom" constant="20" id="Sj5-aV-ccE"/>
                             <constraint firstItem="L9T-fB-TJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="bQ0-Gg-MOK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="W53-Pk-Lm2" secondAttribute="bottom" id="g6l-Dr-8A6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lDe-V0-0uV" secondAttribute="trailing" constant="79" id="hYQ-nf-EPX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lDe-V0-0uV" secondAttribute="bottom" constant="12" id="mIc-My-6QX"/>
+                            <constraint firstAttribute="trailing" secondItem="W53-Pk-Lm2" secondAttribute="trailing" id="oFp-zL-4k8"/>
+                            <constraint firstItem="lDe-V0-0uV" firstAttribute="centerY" secondItem="W53-Pk-Lm2" secondAttribute="centerY" id="pFp-qK-sZK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="kV2-4B-IjG" secondAttribute="bottom" constant="70" id="pnd-yJ-Y4n"/>
+                            <constraint firstItem="W53-Pk-Lm2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="psS-7N-z8N"/>
                             <constraint firstItem="L9T-fB-TJg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pv4-GE-Mbq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hmR-aV-kj8" secondAttribute="bottom" id="rIJ-m7-93t"/>
+                            <constraint firstItem="kV2-4B-IjG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="s3n-LV-rJs"/>
+                            <constraint firstItem="kV2-4B-IjG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sNJ-oU-kpa"/>
+                            <constraint firstItem="lDe-V0-0uV" firstAttribute="centerX" secondItem="W53-Pk-Lm2" secondAttribute="centerX" id="tCt-3j-7Cs"/>
                             <constraint firstAttribute="trailing" secondItem="L9T-fB-TJg" secondAttribute="trailing" constant="20" id="v3t-q3-5cW"/>
                             <constraint firstItem="hmR-aV-kj8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xPd-wg-pmm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="beginBtn" destination="Nob-HT-hmj" id="6Hp-v5-ZXu"/>
+                        <outlet property="groundImg" destination="W53-Pk-Lm2" id="P0o-ej-d28"/>
+                        <outlet property="logoImg" destination="2zc-8b-8uG" id="XlW-6c-h6h"/>
+                        <outlet property="player1AttackBtn" destination="0Lx-ca-TGd" id="YC8-hi-LBj"/>
+                        <outlet property="player1HpLbl" destination="TZ7-Uf-Dhm" id="0cP-MW-2P4"/>
+                        <outlet property="player1Img" destination="pf5-qR-WDo" id="csQ-8c-40B"/>
+                        <outlet property="player1SelectSoldierImg" destination="EHq-Ot-1F4" id="i56-ie-tjj"/>
+                        <outlet property="player1SelectTrollImg" destination="zBG-5n-PMd" id="6EB-Xe-ty7"/>
+                        <outlet property="player1nameLbl" destination="wxe-hM-v0R" id="aQ5-Uf-4uE"/>
+                        <outlet property="player2AttackBtn" destination="gW9-Nd-szc" id="juf-UT-1ea"/>
+                        <outlet property="player2HpLbl" destination="ZNd-hC-W7d" id="0rn-zj-CNK"/>
+                        <outlet property="player2Img" destination="WjJ-eG-gUd" id="Pwd-0U-efx"/>
+                        <outlet property="player2SelectSoldierImg" destination="IOa-F4-bLj" id="zvt-Wi-0cm"/>
+                        <outlet property="player2SelectTrollImg" destination="mFw-vl-frU" id="FET-eb-JgZ"/>
+                        <outlet property="player2nameLbl" destination="DMp-va-gNJ" id="frA-0B-Q5l"/>
+                        <outlet property="selectChar2Lbl" destination="1qu-9h-04o" id="Kr7-Ow-9LE"/>
+                        <outlet property="selectCharLbl" destination="uY2-ns-8DD" id="MYh-Nh-c3d"/>
+                        <outlet property="textHolderLbl" destination="lDe-V0-0uV" id="LVP-V3-lM2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,7 +290,10 @@
         <image name="bg" width="1024" height="677"/>
         <image name="enemy-left" width="241" height="348"/>
         <image name="game-logo" width="603" height="99"/>
+        <image name="ground" width="1024" height="106"/>
         <image name="player-right" width="406" height="441"/>
+        <image name="player1attackbtn" width="212" height="78"/>
         <image name="player2attackbtn" width="212" height="78"/>
+        <image name="text-holder" width="696" height="106"/>
     </resources>
 </document>
