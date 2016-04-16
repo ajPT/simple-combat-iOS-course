@@ -28,7 +28,12 @@ class Character {
     }
     
     var attackPwr: Int {
-        return _attackPwr
+        get {
+            return _attackPwr
+        }
+        set {
+            _attackPwr = newValue
+        }
     }
     
     var hpDiff: Int {

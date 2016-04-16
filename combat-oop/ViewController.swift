@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         combatStackView.hidden = true
         hideStuffOutsideStackViews(true)
         //hideInitialScreen(false)
-        //beginBtn.hidden = true
+        beginBtn.hidden = true
         //hideCombatScreen(true)
     }
     
@@ -138,15 +138,32 @@ class ViewController: UIViewController {
     
     
     @IBAction func onP1attackPressed(sender: AnyObject) {
+        player1.attackPwr = player1.getRandomAttackPwr()
         player2.isAttacked(player1.attackPwr)
-        player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
-        textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!"
+        if player2.isAlive() {
+            player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
+            textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!"
+        } else {
+            player2Img.hidden = true
+            player2HpLbl.hidden = true
+            textHolderLbl.text = "\(player2.name) was killed!"
+            player1AttBtn.hidden = true
+        }
     }
     
     @IBAction func onP2attackPressed(sender: AnyObject) {
+        player2.attackPwr = player2.getRandomAttackPwr()
         player1.isAttacked(player2.attackPwr)
-        player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
-        textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!"
+        if player1.isAlive() {
+            player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
+            textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!"
+        } else {
+            player1Img.hidden = true
+            player1HpLbl.hidden = true
+            textHolderLbl.text = "\(player1.name) was killed!"
+            player2AttBtn.hidden = true
+        }
+       
     }
     
     func hideStuffOutsideStackViews(myBoolean: Bool) {
@@ -158,36 +175,36 @@ class ViewController: UIViewController {
         
     }
     
-    func hideInitialScreen(myBoolean: Bool) {
-        beginBtn.hidden = myBoolean
-        logoImg.hidden = myBoolean
-        player1nameLbl!.hidden = myBoolean
-        selectCharLbl.hidden = myBoolean
-        player1SelectTrollImg.hidden = myBoolean
-        player1SelectSoldierImg.hidden = myBoolean
-        player2nameLbl!.hidden = myBoolean
-        selectChar2Lbl.hidden = myBoolean
-        player2SelectTrollImg.hidden = myBoolean
-        player2SelectSoldierImg.hidden = myBoolean
-    }
-    
-    func hideCombatScreen(myBoolean: Bool) {
-        groundImg.hidden = myBoolean
-        textHolderImg.hidden = myBoolean
-        textHolderLbl.hidden = myBoolean
-        player1Img.hidden = myBoolean
-        player2Img.hidden = myBoolean
-        player1HpLbl.hidden = myBoolean
-        player2HpLbl.hidden = myBoolean
-        player1AttBtn.hidden = myBoolean
-        player2AttBtn.hidden = myBoolean
-        player1AttLbl.hidden = myBoolean
-        player2AttLbl.hidden = myBoolean
-        player1AttBtn.hidden = myBoolean
-        player2AttBtn.hidden = myBoolean
-        player1Img.hidden = myBoolean
-        player2Img.hidden = myBoolean
-    }
+//    func hideInitialScreen(myBoolean: Bool) {
+//        beginBtn.hidden = myBoolean
+//        logoImg.hidden = myBoolean
+//        player1nameLbl!.hidden = myBoolean
+//        selectCharLbl.hidden = myBoolean
+//        player1SelectTrollImg.hidden = myBoolean
+//        player1SelectSoldierImg.hidden = myBoolean
+//        player2nameLbl!.hidden = myBoolean
+//        selectChar2Lbl.hidden = myBoolean
+//        player2SelectTrollImg.hidden = myBoolean
+//        player2SelectSoldierImg.hidden = myBoolean
+//    }
+//    
+//    func hideCombatScreen(myBoolean: Bool) {
+//        groundImg.hidden = myBoolean
+//        textHolderImg.hidden = myBoolean
+//        textHolderLbl.hidden = myBoolean
+//        player1Img.hidden = myBoolean
+//        player2Img.hidden = myBoolean
+//        player1HpLbl.hidden = myBoolean
+//        player2HpLbl.hidden = myBoolean
+//        player1AttBtn.hidden = myBoolean
+//        player2AttBtn.hidden = myBoolean
+//        player1AttLbl.hidden = myBoolean
+//        player2AttLbl.hidden = myBoolean
+//        player1AttBtn.hidden = myBoolean
+//        player2AttBtn.hidden = myBoolean
+//        player1Img.hidden = myBoolean
+//        player2Img.hidden = myBoolean
+//    }
     
     func createPlayerImg() {
         if player1Ready && player1.type == "Soldier" {
@@ -202,7 +219,6 @@ class ViewController: UIViewController {
             player2Img.image = trollRightImg
         }
     }
-    
     
     func readyToBegin() -> Bool {
         if player1Ready && player2Ready {

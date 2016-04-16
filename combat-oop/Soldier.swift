@@ -24,7 +24,7 @@ class Soldier: Character {
             return super.hp
         }
         set {
-            self.hp = newValue
+            super.hp = newValue
         }
     }
     
