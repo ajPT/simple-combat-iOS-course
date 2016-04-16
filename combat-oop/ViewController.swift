@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     var player2: Character!
     var player1Ready = false
     var player2Ready = false
+    var player1InitHp = 0
+    var player2InitHp = 0
     
     var trollRightImg: UIImage = UIImage(named: "enemy-right")!
     var trollLeftImg: UIImage = UIImage(named: "enemy-left")!
@@ -44,22 +46,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var player2Img: UIImageView!
     @IBOutlet weak var textHolderLbl: UILabel!
     @IBOutlet weak var textHolderImg: UIImageView!
-    
+    @IBOutlet weak var restartBtn: UIButton!
+    @IBOutlet weak var rematchBtn: UIButton!
+    @IBOutlet weak var restartLbl: UILabel!
+    @IBOutlet weak var rematchLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialStackView.hidden = false
         combatStackView.hidden = true
-        hideStuffOutsideStackViews(true)
         //hideInitialScreen(false)
         beginBtn.hidden = true
         //hideCombatScreen(true)
+        hideCombatStuffOutsideStackView(true)
+        hideScreenStuffOutsideStackView(true)
+        hideFinalSceneStuff(true)
     }
     
     @IBAction func onPlayer1SelectSoldier(sender: AnyObject) {
         if !player1Ready {
             player1SelectTrollImg.hidden = true
             player1 = Soldier(name: "Player1")
+            player1InitHp = player1.hp
             player1Ready = true
             player1Img.image = soldierLeftImg
             selectCharLbl.text = "READY TO FIGHT!"
@@ -75,6 +83,7 @@ class ViewController: UIViewController {
         if !player1Ready {
             player1SelectSoldierImg.hidden = true
             player1 = Troll(name: "Player1")
+            player1InitHp = player1.hp
             player1Ready = true
             player1Img.image = trollLeftImg
             selectCharLbl.text = "READY TO FIGHT!"
@@ -90,6 +99,7 @@ class ViewController: UIViewController {
         if !player2Ready {
             player2SelectTrollImg.hidden = true
             player2 = Soldier(name: "Player2")
+            player2InitHp = player2.hp
             player2Ready = true
             player2Img.image = soldierRightImg
             selectChar2Lbl.text = "READY TO FIGHT!"
@@ -105,6 +115,7 @@ class ViewController: UIViewController {
         if !player2Ready {
             player2SelectSoldierImg.hidden = true
             player2 = Troll(name: "Player2")
+            player2InitHp = player2.hp
             player2Ready = true
             player2Img.image = trollRightImg
             selectChar2Lbl.text = "READY TO FIGHT!"
@@ -120,7 +131,9 @@ class ViewController: UIViewController {
         
         initialStackView.hidden = true
         combatStackView.hidden = false
-        hideStuffOutsideStackViews(false)
+ 
+        hideCombatStuffOutsideStackView(false)
+        hideScreenStuffOutsideStackView(false)
         
         if player1nameLbl.text != "" {
             player1.name = player1nameLbl.text!
@@ -142,12 +155,13 @@ class ViewController: UIViewController {
         player2.isAttacked(player1.attackPwr)
         if player2.isAlive() {
             player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
-            textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!"
+            textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!" //FALTA VERIF DA IMUNIDADE
         } else {
-            player2Img.hidden = true
-            player2HpLbl.hidden = true
-            textHolderLbl.text = "\(player2.name) was killed!"
-            player1AttBtn.hidden = true
+            textHolderLbl.text = "\(player1.name) killed \(player2.name). Victoryyyy!!!"
+            combatStackView.hidden = true
+            hideCombatStuffOutsideStackView(true)
+            hideFinalSceneStuff(false)
+            
         }
     }
     
@@ -156,24 +170,67 @@ class ViewController: UIViewController {
         player1.isAttacked(player2.attackPwr)
         if player1.isAlive() {
             player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
-            textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!"
+            textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!" //FALTA VERIF DA IMUNIDADE
         } else {
-            player1Img.hidden = true
-            player1HpLbl.hidden = true
-            textHolderLbl.text = "\(player1.name) was killed!"
-            player2AttBtn.hidden = true
+            textHolderLbl.text = "\(player2.name) killed \(player1.name). Victoryyyy!!!"
+            combatStackView.hidden = true
+            hideCombatStuffOutsideStackView(true)
+            hideFinalSceneStuff(false)
         }
-       
     }
     
-    func hideStuffOutsideStackViews(myBoolean: Bool) {
+    @IBAction func onRestartBtnPressed(sender: AnyObject) {
+        initialStackView.hidden = false
+        combatStackView.hidden = true
+        beginBtn.hidden = true
+        hideCombatStuffOutsideStackView(true)
+        hideScreenStuffOutsideStackView(true)
+        hideFinalSceneStuff(true)
+        
+        player1Ready = false
+        player2Ready = false
+        
+        player1SelectSoldierImg.hidden = false
+        player1SelectTrollImg.hidden = false
+        player2SelectSoldierImg.hidden = false
+        player2SelectTrollImg.hidden = false
+        selectCharLbl.text = "Select your character"
+        selectChar2Lbl.text = "Select your character"
+        player1nameLbl.text = ""
+        player2nameLbl.text = ""
+    }
+    
+    
+    @IBAction func onRematchBtnPressed(sender: AnyObject) {
+        hideFinalSceneStuff(true)
+        player1.hp = player1InitHp
+        player2.hp = player2InitHp
+        player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
+        player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
+        textHolderLbl.text = ""
+        combatStackView.hidden = false
+        hideCombatStuffOutsideStackView(false)
+    }
+    
+    
+    func hideFinalSceneStuff(myBoolean: Bool) {
+        restartLbl.hidden = myBoolean
+        restartBtn.hidden = myBoolean
+        rematchBtn.hidden = myBoolean
+        rematchLbl.hidden = myBoolean
+    }
+    
+    func hideCombatStuffOutsideStackView(myBoolean: Bool) {
         player1AttLbl.hidden = myBoolean
         player2AttLbl.hidden = myBoolean
+    }
+    
+    func hideScreenStuffOutsideStackView(myBoolean: Bool) {
         groundImg.hidden = myBoolean
         textHolderImg.hidden = myBoolean
         textHolderLbl.hidden = myBoolean
-        
     }
+    
     
 //    func hideInitialScreen(myBoolean: Bool) {
 //        beginBtn.hidden = myBoolean
