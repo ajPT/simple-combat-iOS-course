@@ -7,10 +7,7 @@
 //
 
 import UIKit
-
-//TODO
-//Add validation to onP1attackPressed and onP2attackPressed -> immunity for soldier
-//Add sounds
+import AVFoundation
 
 class ViewController: UIViewController {
     //PROPERTIES
@@ -25,6 +22,12 @@ class ViewController: UIViewController {
     var trollLeftImg: UIImage = UIImage(named: "enemy-left")!
     var soldierRightImg: UIImage = UIImage(named: "player-right")!
     var soldierLeftImg: UIImage = UIImage(named: "player-left")!
+    
+    var soldierDieSound: AVAudioPlayer!
+    var soldierAttackSound: AVAudioPlayer!
+    var trollDieSound: AVAudioPlayer!
+    var trollAttackSound: AVAudioPlayer!
+    var selectionScreenSound: AVAudioPlayer!
     
     //OUTLETS
     @IBOutlet weak var initialStackView: UIStackView!
@@ -63,6 +66,56 @@ class ViewController: UIViewController {
         hideCombatStuffOutsideStackView(true)
         hideScreenStuffOutsideStackView(true)
         hideFinalSceneStuff(true)
+        
+        let pathSoldierDie = NSBundle.mainBundle().pathForResource("knight_die", ofType: "wav")
+        let soldierDieSoundUrl = NSURL(fileURLWithPath: pathSoldierDie!)
+        
+        do {
+            try soldierDieSound = AVAudioPlayer(contentsOfURL: soldierDieSoundUrl)
+            soldierDieSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        let pathSoldierAttack = NSBundle.mainBundle().pathForResource("knight.scream", ofType: "wav")
+        let soldierAttackSoundUrl = NSURL(fileURLWithPath: pathSoldierAttack!)
+        
+        do {
+            try soldierAttackSound = AVAudioPlayer(contentsOfURL: soldierAttackSoundUrl)
+            soldierAttackSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        let pathTrollDie = NSBundle.mainBundle().pathForResource("orc_die", ofType: "wav")
+        let trollDieSoundUrl = NSURL(fileURLWithPath: pathTrollDie!)
+        
+        do {
+            try trollDieSound = AVAudioPlayer(contentsOfURL: trollDieSoundUrl)
+            trollDieSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        let pathTrollAttack = NSBundle.mainBundle().pathForResource("orc.scream", ofType: "wav")
+        let trollAttackSoundUrl = NSURL(fileURLWithPath: pathTrollAttack!)
+        
+        do {
+            try trollAttackSound = AVAudioPlayer(contentsOfURL: trollAttackSoundUrl)
+            trollAttackSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+        let pathSelectScreen = NSBundle.mainBundle().pathForResource("selection.screen.loop", ofType: "wav")
+        let selectScreenSoundUrl = NSURL(fileURLWithPath: pathSelectScreen!)
+        
+        do {
+            try selectionScreenSound = AVAudioPlayer(contentsOfURL: selectScreenSoundUrl)
+            selectionScreenSound.prepareToPlay()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     //ACTIONS
@@ -258,6 +311,41 @@ class ViewController: UIViewController {
         } else {
             return false
         }
+    }
+    
+    func playSoldierDieSound() {
+        if soldierDieSound.playing {
+            soldierDieSound.stop()
+        }
+        soldierDieSound.play()
+    }
+    
+    func playSoldierAttackSound() {
+        if soldierAttackSound.playing {
+            soldierAttackSound.stop()
+        }
+        soldierAttackSound.play()
+    }
+    
+    func playTrollDieSound() {
+        if trollDieSound.playing {
+            trollDieSound.stop()
+        }
+        trollDieSound.play()
+    }
+    
+    func playTrollAttackSound() {
+        if trollAttackSound.playing {
+            trollAttackSound.stop()
+        }
+        trollAttackSound.play()
+    }
+    
+    func playSelectionScreenSound() {
+        if selectionScreenSound.playing {
+            selectionScreenSound.stop()
+        }
+        selectionScreenSound.play()
     }
 
 }
