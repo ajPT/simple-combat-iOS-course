@@ -153,7 +153,10 @@ class ViewController: UIViewController {
     @IBAction func onP1attackPressed(sender: AnyObject) {
         player1.attackPwr = player1.getRandomAttackPwr()
         player2.isAttacked(player1.attackPwr)
-        if player2.isAlive() {
+        if player2.isAlive() && player2.type == "Soldier" && player2.immunity >= player1.attackPwr {
+            player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
+            textHolderLbl.text = "\(player1.name) attack was too soft! \(player2.name) gained +1 HP!"
+        } else if player2.isAlive() {
             player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
             textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!"
         } else {
@@ -161,14 +164,16 @@ class ViewController: UIViewController {
             combatStackView.hidden = true
             hideCombatStuffOutsideStackView(true)
             hideFinalSceneStuff(false)
-            
         }
     }
     
     @IBAction func onP2attackPressed(sender: AnyObject) {
         player2.attackPwr = player2.getRandomAttackPwr()
         player1.isAttacked(player2.attackPwr)
-        if player1.isAlive() {
+        if player1.isAlive() && player1.type == "Soldier" && player1.immunity >= player2.attackPwr {
+            player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
+            textHolderLbl.text = "\(player2.name) attack was too soft! \(player1.name) gained +1 HP!"
+        } else if player1.isAlive() {
             player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
             textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!"
         } else {
@@ -242,6 +247,9 @@ class ViewController: UIViewController {
         } else if player2Ready && player2.type == "Troll" {
             player2Img.image = trollRightImg
         }
+    }
+    
+    func cena(){
     }
     
     func readyToBegin() -> Bool {

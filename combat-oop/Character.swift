@@ -9,6 +9,7 @@
 import Foundation
 
 class Character {
+    
     //PRIVATE PROPERTIES
     private var _hp = 100
     private var _attackPwr = 20
@@ -16,6 +17,7 @@ class Character {
     private var _hpDiff = 20
     private var _attackDiff = 25
     private var _type = "No_Type"
+    private var _immunity = 0
     
     //COMPUTED PROPERTIES
     var hp: Int {
@@ -55,6 +57,10 @@ class Character {
     
     var type: String {
         return _type
+    }
+    
+    var immunity: Int {
+        return _immunity
     }
     
     //INITIALIZERS

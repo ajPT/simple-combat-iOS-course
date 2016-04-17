@@ -7,16 +7,17 @@
 //
 
 import Foundation
-import UIKit
 
 class Soldier: Character {
-
-    //PROPERTIES
-    private var _immunity = 5
     
     //COMPUTED PROPERTIES
-    var immunity: Int {
-        return _immunity
+    override var immunity: Int {
+        get {
+            return 5
+        }
+        set {
+            self.immunity = newValue
+        }
     }
     
     override var hp: Int {
@@ -39,13 +40,13 @@ class Soldier: Character {
     //INITIALIZERS
     convenience init(name: String, immunity: Int) {
         self.init(name: name)
-        _immunity = immunity
+        self.immunity = immunity
     }
     
     //METHODS
     override func isAttacked(attackPwr: Int) {
         if attackPwr <= immunity {
-            hp += 1
+            self.hp += 1
         } else {
             super.isAttacked(attackPwr)
         }
