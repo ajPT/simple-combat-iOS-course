@@ -211,6 +211,10 @@ class ViewController: UIViewController {
         player1.attackPwr = player1.getRandomAttackPwr()
         player2.isAttacked(player1.attackPwr)
         playAttackSound(player1.type)
+        
+        disableAttackBtns()
+        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.enableAttackBtns), userInfo: nil, repeats: false)
+
         if player2.isAlive() && player2.type == .soldier && player2.immunity >= player1.attackPwr {
             player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
             textHolderLbl.text = "\(player1.name) attack was too soft! \(player2.name) gained +1 HP!"
@@ -230,6 +234,10 @@ class ViewController: UIViewController {
         player2.attackPwr = player2.getRandomAttackPwr()
         player1.isAttacked(player2.attackPwr)
         playAttackSound(player2.type)
+        
+        disableAttackBtns()
+        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.enableAttackBtns), userInfo: nil, repeats: false)
+        
         if player1.isAlive() && player1.type == .soldier && player1.immunity >= player2.attackPwr {
             player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
             textHolderLbl.text = "\(player2.name) attack was too soft! \(player1.name) gained +1 HP!"
@@ -342,6 +350,16 @@ class ViewController: UIViewController {
         } else {
             selectionScreenSound.stop()
         }
+    }
+    
+    func disableAttackBtns() {
+        player1AttBtn.enabled = false
+        player2AttBtn.enabled = false
+    }
+    
+    func enableAttackBtns() {
+        player1AttBtn.enabled = true
+        player2AttBtn.enabled = true
     }
     
 }
