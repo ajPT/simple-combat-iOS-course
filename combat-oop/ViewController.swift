@@ -116,6 +116,8 @@ class ViewController: UIViewController {
         } catch let err as NSError {
             print(err.debugDescription)
         }
+        
+        playSelectionScreenSound(true)
     }
     
     //ACTIONS
@@ -184,6 +186,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onBeginPressed(sender: AnyObject) {
+        
+        playSelectionScreenSound(false)
         
         initialStackView.hidden = true
         combatStackView.hidden = false
@@ -256,6 +260,8 @@ class ViewController: UIViewController {
         selectChar2Lbl.text = "Select your character"
         player1nameLbl.text = ""
         player2nameLbl.text = ""
+        
+        playSelectionScreenSound(true)
     }
     
     @IBAction func onRematchBtnPressed(sender: AnyObject) {
@@ -302,9 +308,6 @@ class ViewController: UIViewController {
         }
     }
     
-    func cena(){
-    }
-    
     func readyToBegin() -> Bool {
         if player1Ready && player2Ready {
             return true
@@ -341,12 +344,13 @@ class ViewController: UIViewController {
         trollAttackSound.play()
     }
     
-    func playSelectionScreenSound() {
-        if selectionScreenSound.playing {
+    func playSelectionScreenSound(todo: Bool) {
+        if todo {
+            selectionScreenSound.play()
+        } else {
             selectionScreenSound.stop()
         }
-        selectionScreenSound.play()
     }
-
+    
 }
 
