@@ -10,13 +10,19 @@ import Foundation
 
 class Character {
     
+    enum CharacterType {
+        case soldier
+        case troll
+        case other
+    }
+    
     //PRIVATE PROPERTIES
     private var _hp = 100
     private var _attackPwr = 20
     private var _name = "No_Name"
     private var _hpDiff = 20
     private var _attackDiff = 25
-    private var _type = "No_Type"
+    private var _type = CharacterType.other
     private var _immunity = 0
     
     //COMPUTED PROPERTIES
@@ -55,8 +61,13 @@ class Character {
         }
     }
     
-    var type: String {
-        return _type
+    var type: CharacterType {
+        get {
+            return _type
+        }
+        set {
+            _type = newValue
+        }
     }
     
     var immunity: Int {

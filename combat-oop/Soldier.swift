@@ -20,21 +20,26 @@ class Soldier: Character {
         }
     }
     
-    override var hp: Int {
-        get {
-            return super.hp
-        }
-        set {
-            super.hp = newValue
-        }
-    }
+//    override var hp: Int {
+//        get {
+//            return super.hp
+//        }
+//        set {
+//            super.hp = newValue
+//        }
+//    }
     
     override var hpDiff: Int {
         return 10
     }
     
-    override var type: String {
-        return "Soldier"
+    override var type: CharacterType {
+        get {
+            return CharacterType.soldier
+        }
+        set {
+            super.type = newValue
+        }
     }
     
     //INITIALIZERS
@@ -46,7 +51,7 @@ class Soldier: Character {
     //METHODS
     override func isAttacked(attackPwr: Int) {
         if attackPwr <= immunity {
-            self.hp += 1
+            super.hp += 1
         } else {
             super.isAttacked(attackPwr)
         }

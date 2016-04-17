@@ -15,8 +15,13 @@ class Troll: Character {
         return 30
     }
     
-    override var type: String {
-        return "Troll"
+    override var type: CharacterType {
+        get {
+            return CharacterType.troll
+        }
+        set {
+            super.type = newValue
+        }
     }
 
 }
