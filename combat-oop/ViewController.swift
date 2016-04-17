@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 
 class ViewController: UIViewController {
     //PROPERTIES
@@ -23,11 +22,7 @@ class ViewController: UIViewController {
     var soldierRightImg: UIImage = UIImage(named: "player-right")!
     var soldierLeftImg: UIImage = UIImage(named: "player-left")!
     
-    var soldierDieSound: AVAudioPlayer!
-    var soldierAttackSound: AVAudioPlayer!
-    var trollDieSound: AVAudioPlayer!
-    var trollAttackSound: AVAudioPlayer!
-    var selectionScreenSound: AVAudioPlayer!
+    var gameAudio: GameAudio!
     
     //OUTLETS
     @IBOutlet weak var initialStackView: UIStackView!
@@ -67,57 +62,9 @@ class ViewController: UIViewController {
         hideScreenStuffOutsideStackView(true)
         hideFinalSceneStuff(true)
         
-        let pathSoldierDie = NSBundle.mainBundle().pathForResource("knight_die", ofType: "wav")
-        let soldierDieSoundUrl = NSURL(fileURLWithPath: pathSoldierDie!)
+        gameAudio = GameAudio()
         
-        do {
-            try soldierDieSound = AVAudioPlayer(contentsOfURL: soldierDieSoundUrl)
-            soldierDieSound.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
-        
-        let pathSoldierAttack = NSBundle.mainBundle().pathForResource("knight.scream", ofType: "wav")
-        let soldierAttackSoundUrl = NSURL(fileURLWithPath: pathSoldierAttack!)
-        
-        do {
-            try soldierAttackSound = AVAudioPlayer(contentsOfURL: soldierAttackSoundUrl)
-            soldierAttackSound.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
-        
-        let pathTrollDie = NSBundle.mainBundle().pathForResource("orc_die", ofType: "wav")
-        let trollDieSoundUrl = NSURL(fileURLWithPath: pathTrollDie!)
-        
-        do {
-            try trollDieSound = AVAudioPlayer(contentsOfURL: trollDieSoundUrl)
-            trollDieSound.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
-        
-        let pathTrollAttack = NSBundle.mainBundle().pathForResource("orc.scream", ofType: "wav")
-        let trollAttackSoundUrl = NSURL(fileURLWithPath: pathTrollAttack!)
-        
-        do {
-            try trollAttackSound = AVAudioPlayer(contentsOfURL: trollAttackSoundUrl)
-            trollAttackSound.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
-        
-        let pathSelectScreen = NSBundle.mainBundle().pathForResource("selection.screen.loop", ofType: "wav")
-        let selectScreenSoundUrl = NSURL(fileURLWithPath: pathSelectScreen!)
-        
-        do {
-            try selectionScreenSound = AVAudioPlayer(contentsOfURL: selectScreenSoundUrl)
-            selectionScreenSound.prepareToPlay()
-        } catch let err as NSError {
-            print(err.debugDescription)
-        }
-        
-        playSelectionScreenSound(true)
+        gameAudio.playSelectionScreenSound(true)
     }
     
     //ACTIONS
@@ -187,7 +134,7 @@ class ViewController: UIViewController {
     
     @IBAction func onBeginPressed(sender: AnyObject) {
         
-        playSelectionScreenSound(false)
+        gameAudio.playSelectionScreenSound(false)
         
         initialStackView.hidden = true
         combatStackView.hidden = false
@@ -210,7 +157,7 @@ class ViewController: UIViewController {
     @IBAction func onP1attackPressed(sender: AnyObject) {
         player1.attackPwr = player1.getRandomAttackPwr()
         player2.isAttacked(player1.attackPwr)
-        playAttackSound(player1.type)
+        gameAudio.playAttackSound(player1.type)
         
         disableAttackBtns()
         NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.enableAttackBtns), userInfo: nil, repeats: false)
@@ -222,7 +169,7 @@ class ViewController: UIViewController {
             player2HpLbl.text = "\(player2.name). \(player2.hp) HP"
             textHolderLbl.text = "\(player2.name) was attacked for \(player1.attackPwr) HP!"
         } else {
-            playDieSound(player2.type)
+            gameAudio.playDieSound(player2.type)
             textHolderLbl.text = "\(player1.name) killed \(player2.name). Victoryyyy!!!"
             combatStackView.hidden = true
             hideCombatStuffOutsideStackView(true)
@@ -233,7 +180,7 @@ class ViewController: UIViewController {
     @IBAction func onP2attackPressed(sender: AnyObject) {
         player2.attackPwr = player2.getRandomAttackPwr()
         player1.isAttacked(player2.attackPwr)
-        playAttackSound(player2.type)
+        gameAudio.playAttackSound(player2.type)
         
         disableAttackBtns()
         NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.enableAttackBtns), userInfo: nil, repeats: false)
@@ -245,7 +192,7 @@ class ViewController: UIViewController {
             player1HpLbl.text = "\(player1.name). \(player1.hp) HP"
             textHolderLbl.text = "\(player1.name) was attacked for \(player2.attackPwr) HP!"
         } else {
-            playDieSound(player1.type)
+            gameAudio.playDieSound(player1.type)
             textHolderLbl.text = "\(player2.name) killed \(player1.name). Victoryyyy!!!"
             combatStackView.hidden = true
             hideCombatStuffOutsideStackView(true)
@@ -273,7 +220,7 @@ class ViewController: UIViewController {
         player1nameLbl.text = ""
         player2nameLbl.text = ""
         
-        playSelectionScreenSound(true)
+        gameAudio.playSelectionScreenSound(true)
     }
     
     @IBAction func onRematchBtnPressed(sender: AnyObject) {
@@ -325,30 +272,6 @@ class ViewController: UIViewController {
             return true
         } else {
             return false
-        }
-    }
-    
-    func playDieSound(type: Character.CharacterType) {
-        if type == .soldier {
-            soldierDieSound.play()
-        } else if type == .troll {
-            trollDieSound.play()
-        }
-    }
-    
-    func playAttackSound(type: Character.CharacterType) {
-        if type == .soldier {
-            soldierAttackSound.play()
-        } else if type == .troll {
-            trollAttackSound.play()
-        }
-    }    
-    
-    func playSelectionScreenSound(todo: Bool) {
-        if todo {
-            selectionScreenSound.play()
-        } else {
-            selectionScreenSound.stop()
         }
     }
     
